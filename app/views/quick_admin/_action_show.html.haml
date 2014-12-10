@@ -1,0 +1,17 @@
+.btn-group
+  - if actions.include?('new')
+    = link_to url_for(action: :new), :class => 'btn btn-primary btn-xs' do
+      %i.fa.fa-plus
+      = t('.new', default: t("helpers.links.new"))
+  - if actions.include?("back")
+    = link_to url_for(action: :index), :class => 'btn btn-info btn-xs' do
+      %i.fa.fa-list
+      = t('.back', :default => t("helpers.links.back"))
+  - if actions.include?("edit")
+    = link_to url_for(action: :edit), :class => 'btn btn-warning btn-xs' do
+      %i.fa.fa-wrench
+      =t('.edit', :default => t("helpers.links.edit"))
+  -  if actions.include?("destroy")
+    = link_to url_for(action: :destroy), :method => "delete", data: { confirm: t("helpers.links.confirm") }, :class => 'btn btn-danger btn-xs' do
+      %i.fa.fa-trash-o
+      = t('.destroy', :default => t("helpers.links.destroy"))

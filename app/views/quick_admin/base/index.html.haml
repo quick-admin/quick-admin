@@ -1,0 +1,21 @@
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          = page_entries_info @assets   
+          .ibox-tools
+            = show_action :new
+        .ibox-content
+          = paginate @assets
+          = datagrid_table @grid, @assets
+          = paginate @assets
+    .col-lg-6
+      .ibox.float-e-margins
+        .ibox-title
+          = t(".filter_form") 
+          .ibox-tools
+            %a.collapse-link
+              %i.fa.fa-chevron-up
+        .ibox-content(style="display: none;")
+          = datagrid_form_for @grid, url: collection_path
