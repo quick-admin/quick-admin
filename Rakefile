@@ -17,25 +17,20 @@ Jeweler::Tasks.new do |gem|
   gem.name = "quick-admin"
   gem.homepage = "http://github.com/lazing/quick-admin"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "ryanwong@kaopubao.com"
+  gem.summary = %Q{easy to customize quick administrator backend framework}
+  gem.description = %Q{
+
+  }
+  gem.email = "lazing@gmail.com"
   gem.authors = ["Ryan Wong"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
 desc "Code coverage detail"
 task :simplecov do
   ENV['COVERAGE'] = "true"
-  Rake::Task['test'].execute
+  Rake::Task['spec'].execute
 end
 
 task :default => :test
