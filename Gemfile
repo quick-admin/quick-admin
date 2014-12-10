@@ -18,7 +18,6 @@ gem 'simple_form', '3.1.0'
 gem 'kaminari'
 gem 'datagrid'
 gem 'inherited_resources'
-gem 'devise'
 
 # This is basically a ruby gem for asset pipeline which includes the version 0.1.6 of the awesome rstacruz' nprogress library.
 gem 'nprogress-rails'
@@ -26,8 +25,11 @@ gem 'nprogress-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 group :development do
   gem "shoulda", ">= 0"

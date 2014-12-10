@@ -25,7 +25,9 @@ Gem::Specification.new do |s|
     "README.mdown",
     "Rakefile",
     "VERSION",
-    "lib/quick-admin.rb"
+    "lib/quick-admin.rb",
+    "lib/quick_admin/rails.rb",
+    "quick-admin.gemspec"
   ]
   s.homepage = "http://github.com/lazing/quick-admin"
   s.licenses = ["MIT"]
@@ -44,11 +46,12 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<kaminari>, [">= 0"])
       s.add_runtime_dependency(%q<datagrid>, [">= 0"])
       s.add_runtime_dependency(%q<inherited_resources>, [">= 0"])
-      s.add_runtime_dependency(%q<devise>, [">= 0"])
       s.add_runtime_dependency(%q<nprogress-rails>, [">= 0"])
       s.add_runtime_dependency(%q<sass-rails>, [">= 0"])
       s.add_runtime_dependency(%q<bootstrap-sass>, [">= 0"])
+      s.add_runtime_dependency(%q<font-awesome-rails>, [">= 0"])
       s.add_runtime_dependency(%q<turbolinks>, [">= 0"])
+      s.add_runtime_dependency(%q<jquery-turbolinks>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<rspec-rails>, [">= 0"])
@@ -69,11 +72,12 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<kaminari>, [">= 0"])
       s.add_dependency(%q<datagrid>, [">= 0"])
       s.add_dependency(%q<inherited_resources>, [">= 0"])
-      s.add_dependency(%q<devise>, [">= 0"])
       s.add_dependency(%q<nprogress-rails>, [">= 0"])
       s.add_dependency(%q<sass-rails>, [">= 0"])
       s.add_dependency(%q<bootstrap-sass>, [">= 0"])
+      s.add_dependency(%q<font-awesome-rails>, [">= 0"])
       s.add_dependency(%q<turbolinks>, [">= 0"])
+      s.add_dependency(%q<jquery-turbolinks>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<rspec-rails>, [">= 0"])
@@ -95,11 +99,12 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<kaminari>, [">= 0"])
     s.add_dependency(%q<datagrid>, [">= 0"])
     s.add_dependency(%q<inherited_resources>, [">= 0"])
-    s.add_dependency(%q<devise>, [">= 0"])
     s.add_dependency(%q<nprogress-rails>, [">= 0"])
     s.add_dependency(%q<sass-rails>, [">= 0"])
     s.add_dependency(%q<bootstrap-sass>, [">= 0"])
+    s.add_dependency(%q<font-awesome-rails>, [">= 0"])
     s.add_dependency(%q<turbolinks>, [">= 0"])
+    s.add_dependency(%q<jquery-turbolinks>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<rspec-rails>, [">= 0"])
