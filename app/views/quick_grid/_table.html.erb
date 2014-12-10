@@ -1,0 +1,19 @@
+<%#
+Local variables:
+* grid - instance of Datagrid
+* assets - Array of database Entities
+* options - passed options Hash
+%>
+<% options[:html][:class] += " table table-hover table-striped" %>
+<%= content_tag :table, options[:html] do %>
+  <thead>
+    <%= datagrid_header(grid, options) %>
+  </thead>
+  <tbody>
+    <% if (assets.respond_to?(:total_count) ? assets.total_count : assets.count)  == 0 %>
+    <tr><td class="noresults" colspan="100%"><%= I18n.t('datagrid.no_results').html_safe %></td></tr>
+    <% else %>
+    <%= datagrid_rows(grid, assets, options) %>
+    <% end %>
+  </tbody>
+<% end %>
