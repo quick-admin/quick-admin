@@ -1,4 +1,4 @@
-Quck Admin
+Quick Admin
 ========
 
 Easy to customize quick administrator backend framework.

@@ -12,7 +12,6 @@ gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'redis-objects'
 
 gem 'meta-tags', :require => 'meta_tags'
 gem 'simple_form', '3.1.0'
