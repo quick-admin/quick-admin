@@ -1,10 +1,10 @@
 Quck Admin
------------------
+========
 
 Easy to customize quick administrator backend framework.
 
 Powered by
-===============
+------
 
 * bootstrap 3
 * fontawesome
@@ -14,7 +14,7 @@ Powered by
 * kaminari
 
 Features
-===============
+------
 
 * Less Coding, models, form and grid configuration is all
 * Flexiable and standard customizing: change theme, change show, change form is all rails style.
@@ -23,7 +23,7 @@ Features
 
 
 Contributing to quick-admin
-============================
+------
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -34,7 +34,7 @@ Contributing to quick-admin
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 Copyright
-========================
+------
 
 Copyright (c) 2014 Ryan Wong. See LICENSE.txt for
 further details.
