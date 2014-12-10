@@ -8,7 +8,7 @@
             = show_action :new
         .ibox-content
           = paginate @assets
-          = datagrid_table @grid, @assets
+          = datagrid_table @grid, @assets, partials: "quick_grid"
           = paginate @assets
     .col-lg-6
       .ibox.float-e-margins
@@ -18,4 +18,4 @@
             %a.collapse-link
               %i.fa.fa-chevron-up
         .ibox-content(style="display: none;")
-          = datagrid_form_for @grid, url: collection_path
+          = datagrid_form_for @grid, url: collection_path, partials: "quick_grid"

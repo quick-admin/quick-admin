@@ -25,3 +25,7 @@ class Datagrid::Filters::BaseFilter
     header_original
   end
 end
+
+class Datagrid::Renderer
+
+end
