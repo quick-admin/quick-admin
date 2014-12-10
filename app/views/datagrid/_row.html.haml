@@ -1,0 +1,5 @@
+- status = asset.respond_to?(:status) ? asset.status : nil 
+%tr{class: [options[:cycle] && cycle(*options[:cycle]), status]}
+  - grid.html_columns(*options[:columns]).each do |column|
+    %td{class: [datagrid_column_classes(grid, column), datagrid_format_value(grid, column, asset).to_s == "0" ? :zero : nil]}
+      = datagrid_format_value(grid, column, asset)
