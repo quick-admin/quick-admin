@@ -1,6 +1,22 @@
-= quick-admin
+= Quck Admin
 
-Description goes here.
+Easy to customize quick administrator backend framework.
+
+== Powered by
+
+* bootstrap 3
+* fontawesome
+* haml
+* datagrid
+* inherited_resources
+* kaminari
+
+== Features
+* Less Coding, models, form and grid configuration is all
+* Flexiable and standard customizing: change theme, change show, change form is all rails style.
+* Stable, all dependencies is well used amount rails community.
+* Support simple to complex project: simple with predefined logic, complexity can be done in normal rails way.
+
 
 == Contributing to quick-admin
  

@@ -20,6 +20,13 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{easy to customize quick administrator backend framework}
   gem.description = %Q{
 
+    * with bootstrap 3
+    * with fontawesome
+    * with haml
+    * with datagrid
+    * with inherited_resources
+    * with kaminari
+
   }
   gem.email = "lazing@gmail.com"
   gem.authors = ["Ryan Wong"]
