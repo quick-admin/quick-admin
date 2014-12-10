@@ -11,7 +11,7 @@ module QuickAdminHelper
 
     label = object.class.try(:human_attribute_name, attribute) rescue attribute
 
-    render partial: 'share/item', locals: {value: text, label: label, object: object, attribute: attribute}
+    render partial: 'quick_admin/item', locals: {value: text, label: label, object: object, attribute: attribute}
 
   end
 
@@ -85,7 +85,7 @@ module QuickAdminHelper
 
     raise "only allow new, back, edit and destory" unless ((actions.map!(&:to_s)) - %W(new back edit destroy)).size == 0 
 
-    render partial: 'share/action_show', locals: {actions: actions} 
+    render partial: 'quick_admin/action_show', locals: {actions: actions} 
   end
 
 end

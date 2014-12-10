@@ -1,0 +1,3 @@
+%dt{class: attribute}=label
+%dd{class: "#{attribute} #{value.blank? ? "text-muted" : nil}"}
+  = value.blank? ? t(".empty") : value 

@@ -1,0 +1,16 @@
+- content_for :content do
+  .row.wrapper.border-bottom.white-bg.page-heading
+    .col-lg-12
+      %h2
+        = title params[:id] ? display(resource) : resource_class.model_name.human
+      %ol.breadcrumb
+        %li=link_to "Dashboard", root_path
+        - if params[:id]
+          %li=link_to resource_class.model_name.human, collection_path
+          %li.active=display(resource)
+        - else
+          %li.active=resource_class.model_name.human
+
+  = yield
+
+= render template: "layouts/application"
