@@ -14,15 +14,17 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
 
     def resource
       get_resource_ivar || begin
-        authorize super if should_authorize?
-        set_resource_ivar super
+        operated_resource = super
+        authorize operated_resource if should_authorize?
+        set_resource_ivar operated_resource
       end
     end
 
     def build_resource
       get_resource_ivar || begin
-        authorize super if should_authorize?
-        set_resource_ivar super
+        operated_resource = super
+        authorize operated_resource if should_authorize?
+        set_resource_ivar operated_resource
       end
     end
   end
