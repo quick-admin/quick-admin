@@ -13,17 +13,17 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
     end
 
     def resource
-      @vendor_platform ||= proc do
+      get_resource_ivar || begin
         authorize super if should_authorize?
-        super
-      end.call
+        set_resource_ivar super
+      end
     end
 
     def build_resource
-      @vendor_platform ||= proc do
+      get_resource_ivar || begin
         authorize super if should_authorize?
-        super
-      end.call
+        set_resource_ivar super
+      end
     end
   end
 
