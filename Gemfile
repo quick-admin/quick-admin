@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source 'http://ruby.taobao.org/'
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
