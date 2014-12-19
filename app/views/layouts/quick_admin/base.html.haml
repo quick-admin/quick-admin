@@ -5,11 +5,14 @@
         = title params[:id] ? display(resource) : resource_class.model_name.human
       %ol.breadcrumb
         %li=link_to "Dashboard", QuickAdmin.root_path
+        - if self.respond_to?(:parent?) && parent? 
+          %li=parent.class.model_name.human(count: 2)
+          %li=link_model parent
         - if params[:id]
-          %li=link_to resource_class.model_name.human, collection_path
+          %li=link_to resource_class.model_name.human(count: 2), collection_path
           %li.active=display(resource)
         - else
-          %li.active=resource_class.model_name.human
+          %li.active=resource_class.model_name.human(count: 2)
 
   = yield
 
