@@ -35,7 +35,7 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
 
   def self.inherited klass
     klass.inherit_resources
-    klass.include InstanceMethods
+    klass.send :include, InstanceMethods
   end
 
   def should_authorize?
