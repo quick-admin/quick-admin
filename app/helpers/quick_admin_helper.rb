@@ -19,7 +19,9 @@ module QuickAdminHelper
     case value
     when ActiveRecord::Base
       link_model(value)
-    when Date, DateTime, Time
+    when DateTime, Time, ActiveSupport::TimeWithZone
+      time_ago_in_words value
+    when Date
       l value
     when Array
       value.map{|val| item_value(object, attribute, val)}.select{|i|!i.blank?}.join(", ")

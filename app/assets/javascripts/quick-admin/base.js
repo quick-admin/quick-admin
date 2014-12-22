@@ -16,8 +16,6 @@
 //= require bootstrap-markdown
 //= require summernote.min
 //= require lang/summernote-zh-CN
-//= require select2
-//= require select2_locale_"zh-CN"
 //= require nprogress
 //= require nprogress-turbolinks
 //= require plugins/metisMenu/jquery.metisMenu

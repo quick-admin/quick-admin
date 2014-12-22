@@ -5,7 +5,7 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
 
     def collection
       get_collection_ivar || begin
-        @grid = resource_collection_name.to_s.camelize.constantize.new(params[resource_collection_name])
+        @grid = build_grid
         @assets = @grid.assets.page(params[:page])
         authorize @assets if should_authorize?
         set_collection_ivar @assets
@@ -26,6 +26,10 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
         authorize operated_resource if should_authorize?
         set_resource_ivar operated_resource
       end
+    end
+
+    def build_grid
+      resource_collection_name.to_s.camelize.constantize.new(params[resource_collection_name])
     end
   end
 
