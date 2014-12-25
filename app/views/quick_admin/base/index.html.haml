@@ -18,4 +18,4 @@
             %a.collapse-link
               %i.fa.fa-chevron-up
         .ibox-content(style="display: none;")
-          = datagrid_form_for @grid, url: collection_path, partials: "quick_grid"
+          = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"

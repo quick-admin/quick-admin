@@ -9,7 +9,7 @@
           %li=parent.class.model_name.human(count: 2)
           %li=link_model parent
         - if params[:id]
-          %li=link_to resource_class.model_name.human(count: 2), collection_path
+          %li=link_to resource_class.model_name.human(count: 2), action: :index
           %li.active=display(resource)
         - else
           %li.active=resource_class.model_name.human(count: 2)

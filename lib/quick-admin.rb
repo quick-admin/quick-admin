@@ -1,8 +1,11 @@
 require 'rails'
 require 'kaminari'
-require 'inherited_resources'
+require 'meta_tags'
+require 'responders'
 require 'simple_form'
 require 'nprogress-rails'
+require 'haml-rails'
+require 'coffee-rails'
 
 module QuickAdmin
 

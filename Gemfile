@@ -5,7 +5,7 @@ source 'http://ruby.taobao.org/'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-
+gem 'rails', "~>4.2"
 gem 'haml'
 gem 'haml-rails'
 gem 'coffee-rails'
@@ -13,11 +13,11 @@ gem 'coffee-rails'
 # gem 'therubyracer',  platforms: :ruby
 
 
-gem 'meta-tags', :require => 'meta_tags'
-gem 'simple_form', '3.1.0'
+gem 'meta-tags'
+gem 'simple_form', '~>3.1.0'
 gem 'kaminari'
 gem 'datagrid'
-gem 'inherited_resources'
+gem 'responders', '~>2.0'
 
 # This is basically a ruby gem for asset pipeline which includes the version 0.1.6 of the awesome rstacruz' nprogress library.
 gem 'nprogress-rails'
