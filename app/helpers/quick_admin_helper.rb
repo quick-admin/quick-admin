@@ -16,7 +16,7 @@ module QuickAdminHelper
   end
 
   def item_value object, attribute, value, link: nil
-    case value
+    text = case value
     when ActiveRecord::Base
       link_model(value)
     when DateTime, Time, ActiveSupport::TimeWithZone
@@ -38,6 +38,7 @@ module QuickAdminHelper
         value.respond_to?(:human) ? value.human : value
       end
     end
+    markdown text
   end
 
   # 创建resource关于attributes的属性Define List
@@ -59,14 +60,25 @@ module QuickAdminHelper
   # 显示model名称
   # * 以display_name, name, to_s 判断model的显示名称
   def display object
-    case
+    text = case
     when object.respond_to?(:display_name)
       object.display_name
+    when object.respond_to?(:human)
+      object.human
     when object.respond_to?(:name)
       object.name
     else
       object.to_s
     end
+    markdown text
+  rescue
+    logger.warn "#{$!}: #{$!.backtrace()}"
+    "!E"
+  end
+
+  def markdown content
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    raw @markdown.render(content||"")
   end
 
   # 自动连接model
