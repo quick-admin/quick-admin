@@ -78,7 +78,7 @@ module QuickAdminHelper
 
   def markdown content
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    raw @markdown.render(content||"")
+    raw @markdown.render(content.to_s||"")
   end
 
   # 自动连接model
