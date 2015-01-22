@@ -5,6 +5,6 @@
       <%= f.datagrid_filter filter, class: "form-control" %>
     </div>
   <% end %>
-  <%= f.submit I18n.t("datagrid.form.search"), :class => "btn btn-primay" %>
+  <%= f.submit I18n.t("datagrid.form.search"), :class => "btn btn-primary" %>
   <%= link_to I18n.t('datagrid.form.reset'), url_for(grid.to_param => {}), :class => "datagrid-reset btn btn-default" %>
 <% end -%>
