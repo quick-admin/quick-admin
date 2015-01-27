@@ -1,5 +1,5 @@
 .datagrid-filter {
-  select, input[class*="filter"]{
-    width: 100%;
+  select, input.from[class*="filter"], input.to[class*="filter"]{
+    width: auto;
   }
 }
