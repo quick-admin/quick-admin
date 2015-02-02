@@ -14,20 +14,17 @@
     .col-lg-12
       .ibox.float-e-margins
         .ibox-title
+          %a(href="#filter-form" data-toggle="collapse")
+            %i.fa.fa-gear
           = page_entries_info @assets
+
           .ibox-tools
             = show_action :new
         .ibox-content
+          #filter-form.content.collapse
+            = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
+            %hr
+
           = paginate @assets
           = datagrid_table @grid, @assets, partials: "quick_grid"
           = paginate @assets
-
-    .col-lg-6
-      .ibox.float-e-margins
-        .ibox-title
-          = t(".filter_form")
-          .ibox-tools
-            %a.collapse-link
-              %i.fa.fa-chevron-up
-        .ibox-content(style="display: none;")
-          = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
