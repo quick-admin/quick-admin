@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ryan Wong"]
-  s.date = "2015-01-05"
+  s.date = "2015-02-03"
   s.description = "\n\n    * bootstrap 3\n    * fontawesome\n    * haml\n    * datagrid\n    * responders\n    * kaminari\n\n  "
   s.email = "lazing@gmail.com"
   s.extra_rdoc_files = [
@@ -61,7 +61,7 @@ Gem::Specification.new do |s|
     "app/views/quick_admin/base/index.html.haml",
     "app/views/quick_admin/base/new.html.haml",
     "app/views/quick_admin/base/show.html.haml",
-    "app/views/quick_grid/_form.html.erb",
+    "app/views/quick_grid/_form.html.haml",
     "app/views/quick_grid/_head.html.haml",
     "app/views/quick_grid/_order_for.html.haml",
     "app/views/quick_grid/_row.html.haml",
@@ -71,6 +71,7 @@ Gem::Specification.new do |s|
     "lib/assets/javascripts/bootstrap-editable.js",
     "lib/assets/javascripts/bootstrap-markdown.js",
     "lib/assets/javascripts/inspinia.js",
+    "lib/assets/javascripts/jquery.cascadingdropdown.js",
     "lib/assets/javascripts/lang/summernote-zh-CN.js",
     "lib/assets/javascripts/locales/bootstrap-datetimepicker.zh-CN.js",
     "lib/assets/javascripts/locales/bootstrap-datetimepicker.zh-TW.js",
