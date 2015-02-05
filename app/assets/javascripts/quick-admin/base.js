@@ -20,7 +20,7 @@
 //= require nprogress-turbolinks
 //= require plugins/metisMenu/jquery.metisMenu
 //= require plugins/slimscroll/jquery.slimscroll.min
-//= require plugins/pace/pace.min
+// require plugins/pace/pace.min
 //= require inspinia
 //= require jquery.cascadingdropdown
 //= require_tree .
