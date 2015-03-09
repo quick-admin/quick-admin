@@ -1,0 +1,3 @@
+- @scopes.try :each do |key|
+  - unless key == @type
+    =link_to collection.model_name.name.constantize.human_attribute_name("names/#{@type}.#{key}"), url_for(action: "index", controller: @grid.class.name.underscore, scope: key), class: "btn btn-default btn-xs #{:active if key == @scope}"

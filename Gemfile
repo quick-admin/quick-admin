@@ -24,11 +24,12 @@ gem 'nprogress-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'bootstrap-sass'
+gem 'semantic-ui-sass'
 gem 'font-awesome-rails'
 
 
 group :development do
+  gem 'pry-rails'
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
   gem 'rspec-rails'

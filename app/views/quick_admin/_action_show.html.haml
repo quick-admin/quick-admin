@@ -1,8 +1,7 @@
 .btn-group
   - if actions.include?('new')
-    = link_to url_for(action: :new), :class => 'btn btn-primary btn-xs' do
+    = link_to url_for(action: :new), :class => 'btn btn-primary btn-sm' do
       %i.fa.fa-plus
-      = t('.new', default: t("helpers.links.new"))
   - if actions.include?("back")
     = link_to url_for(action: :index), :class => 'btn btn-info btn-xs' do
       %i.fa.fa-list

@@ -3,4 +3,4 @@
   - grid.html_columns(*options[:columns]).each do |column|
     - clazz = [datagrid_column_classes(grid, column), datagrid_format_value(grid, column, asset).to_s == "0" ? :zero : nil] rescue nil
     %td{class: clazz}
-      = datagrid_format_value(grid, column, asset)
+      = datagrid_format_value(grid, column, asset).to_s.html_safe
