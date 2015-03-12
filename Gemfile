@@ -24,7 +24,7 @@ gem 'nprogress-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'semantic-ui-sass'
+gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 

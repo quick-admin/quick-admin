@@ -1,9 +1,7 @@
 module QuickAdminHelper
-
-
-  def item object, attribute=nil, link: nil, &block
+  def item(object, attribute = nil, link: nil, &block)
     if block_given?
-      text = block.call(object) 
+      text = block.call(object)
     else
       value = object.try(attribute) if attribute
       text = item_value(object, attribute, value, link: link)
@@ -11,12 +9,13 @@ module QuickAdminHelper
 
     label = object.class.try(:human_attribute_name, attribute) rescue attribute
 
-    render partial: 'quick_admin/item', locals: {value: text, label: label, object: object, attribute: attribute}
-
+    render \
+      partial: 'quick_admin/item',
+      locals: { value: text, label: label, object: object, attribute: attribute }
   end
 
   def item_value object, attribute, value, link: nil
-    text = case value
+    case value
     when ActiveRecord::Base
       link_model(value)
     when DateTime, Time, ActiveSupport::TimeWithZone
@@ -35,10 +34,10 @@ module QuickAdminHelper
         [value].flatten.select{|val|!val.blank?}
           .map{|val|object.class.human_member_name(attribute, val)}.join(", ")
       else
-        value.respond_to?(:human) ? value.human : value
+        text = markdown(value.respond_to?(:human) ? value.human : value).html_safe
+        sanitize text, tags: %w(span code strong abbr)
       end
     end
-    markdown text
   end
 
   # 创建resource关于attributes的属性Define List
@@ -70,7 +69,7 @@ module QuickAdminHelper
     else
       object.to_s
     end
-    markdown text
+    sanitize markdown(text), tags: %w(span code strong abbr)
   rescue
     logger.warn "#{$!}: #{$!.backtrace()}"
     "!E"

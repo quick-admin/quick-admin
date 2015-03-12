@@ -1,5 +1,3 @@
-Bundler.require(*Rails.groups)
-
 module QuickAdmin
 
   class Engine < ::Rails::Engine
