@@ -1,0 +1,19 @@
+- content_for :content do
+  .ui.breadcrumb
+    = link_to "Dashboard", QuickAdmin.root_path, class: 'section'
+    .divider /
+    - if self.respond_to?(:parent?) && parent? 
+      .section=parent.class.model_name.human(count: 2)
+      .divider /
+      .active.section=link_model parent
+    - if params[:id]
+      =link_to resource_class.model_name.human(count: 2), action: :index
+      .divider /
+      .active.section=title strip_tags(display(resource))
+    - else
+      .active.section=title resource_class.model_name.human(count: 2)
+  .content
+    = yield
+
+= render template: QuickAdmin.parent_layout
+

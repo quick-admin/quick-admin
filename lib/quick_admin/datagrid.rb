@@ -1,31 +1,35 @@
 require 'datagrid'
 
-class Datagrid::Columns::Column
-  alias_method :header_original, :header
-  def header
-    self.options[:header] ||= proc do
-      self.grid_class.scope_value.call.human_attribute_name(self.name)
-    end.call
-  rescue
-    Rails.logger.warn "Datagrid Patch ERROR: #{$!}"
-  ensure
-    header_original
+#
+module Datagrid
+  #
+  class Columns::Column
+    alias_method :header_original, :header
+    def header
+      options[:header] ||= proc do
+        grid_class.scope_value.call.human_attribute_name(name)
+      end.call
+    rescue
+      Rails.logger.warn "Datagrid Patch ERROR: #{$ERROR_INFO}"
+    ensure
+      header_original
+    end
   end
-end
 
-class Datagrid::Filters::BaseFilter
-  alias_method :header_original, :header
-  def header
-    self.options[:header] ||= proc do
-      self.grid_class.scope_value.call.human_attribute_name(self.name)
-    end.call
-  rescue
-    Rails.logger.warn "Datagrid Patch ERROR: #{$!}"
-  ensure
-    header_original
+  #
+  class Filters::BaseFilter
+    alias_method :header_original, :header
+    def header
+      options[:header] ||= proc do
+        grid_class.scope_value.call.human_attribute_name(name)
+      end.call
+    rescue
+      Rails.logger.warn "Datagrid Patch ERROR: #{$ERROR_INFO}"
+    ensure
+      header_original
+    end
   end
-end
 
-class Datagrid::Renderer
-
+  class Renderer
+  end
 end

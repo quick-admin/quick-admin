@@ -1,3 +1,4 @@
-%dt{class: attribute}=label
-%dd{class: "#{attribute} #{value.blank? ? "text-muted" : nil}"}
-  = value.blank? ? t(".empty") : value 
+.item
+  .header=label
+  .content{class: "#{attribute} #{value.blank? ? "text-muted" : nil}"}
+    = value.blank? ? t(".empty") : value 

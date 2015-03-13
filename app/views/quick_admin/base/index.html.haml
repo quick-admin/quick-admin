@@ -1,28 +1,12 @@
-- unless @scope.blank?
-  %nav.navbar.navbar-default(role="navigation")
-    .container
-      .navbar-header
-        .navbar-brand= "#{collection.model_name}-#{@type}"
-      .collapse.navbar-collapse
-        .btn-group
 
-.row
-  .col-lg-12
-    .widget
-      .widget-header.centered
-        .left-btn
-          = show_action :new
-        %h2= page_entries_info @assets
-      .widget-content
-        .toolbar
-          .row
-            .col-md-6
-              .pull-left
-                = render 'scopes'
+.ui.menu.attached.top
+  .item= page_entries_info @assets
+  .ui.menu.right.icon.inverted.blue
+    = show_action :new
+.ui.attached.segment
+  = render 'scopes'
+  #filter-form.content.collapse
+    /= datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
+= datagrid_table @grid, @assets, partials: "quick_grid"
+= paginate @assets
 
-        #filter-form.content.collapse
-          = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
-          %hr
-        = datagrid_table @grid, @assets, partials: "quick_grid"
-        .data-table-toolbar
-          = paginate @assets

@@ -12,14 +12,16 @@
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
   - body_id = 'body-%s-%s' % [controller_name, action_name]
-  %body.menu.pushable{ontouchstart:true, id: body_id}
-    .ui.left.vertical.inverted.sidebar.menu
+  %body.pushable
+    #toc.ui.vertical.menu.sidebar.left
       = link_to t("site.name"), root_path, class: %w(brand item)
       = render 'layouts/menu' rescue nil
-    .ui.black.big.launch.right.attached.fixed.button
-      %i.content.icon
-        %span.text Menu
+    #topbar.ui.fixed.main.menu
+      .container
+        %a.launch.item.toggle
+          %i.content.icon
+          Menu
     .pusher
-      .full.height
-        .main.container
+      .main.container
+        .ui.segment
           = content_for?(:content) ? yield(:content) : yield 

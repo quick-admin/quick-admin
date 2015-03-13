@@ -1,14 +1,11 @@
-.row
-  .col-lg-12
-    .widget
-      .widget-content
-        .row
-          .col-md-12
-            .toolbar
-              .pull-right
-                = show_action :back, :edit
-        - columns = default_item_names resource
-        .row
-          - columns.each do |column|
-            %div{class: "col-md-#{12/columns.size}"}
-              = items resource, *column, class: "dl-horizontal"
+.ui.attached.top.menu
+  .item=display resource
+  .ui.menu.right
+    = show_action :back, :edit
+.ui.attached.segment
+  - columns = default_item_names resource
+  .ui.three.column.grid
+    - columns.each do |column|
+      .column
+        .panel
+          = items resource, *column, class: "dl-horizontal"

@@ -44,7 +44,8 @@ module QuickAdminHelper
   def items object, *attributes, &block
     options = attributes.extract_options!
     inner = block.call if block_given?
-    content_tag :dl, options do
+    options.merge! class: "ui list #{options[:class]}"
+    content_tag :div, options do
       nodes = attributes.map{|attr| item(object, attr)}
       [nodes, inner].flatten.compact.join.html_safe
     end

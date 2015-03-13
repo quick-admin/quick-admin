@@ -12,7 +12,6 @@ gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-
 gem 'meta-tags'
 gem 'simple_form', '~>3.1.0'
 gem 'kaminari'
@@ -24,8 +23,10 @@ gem 'nprogress-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'semantic-ui-sass'
+gem 'jquery-rails'
+gem 'sprockets-rails'
 
 
 group :development do

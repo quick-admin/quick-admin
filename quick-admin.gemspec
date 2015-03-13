@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ryan Wong"]
-  s.date = "2015-03-10"
+  s.date = "2015-03-13"
   s.description = "\n\n    * bootstrap 3\n    * fontawesome\n    * haml\n    * datagrid\n    * responders\n    * kaminari\n\n  "
   s.email = "lazing@gmail.com"
   s.extra_rdoc_files = [
@@ -52,7 +52,8 @@ Gem::Specification.new do |s|
     "lib/quick_admin/datagrid.rb",
     "lib/quick_admin/rails.rb",
     "quick-admin.gemspec",
-    "spec/helpers/quick_admin_helper_spec.rb"
+    "spec/helpers/quick_admin_helper_spec.rb",
+    "vendor/assets/javascripts/jquery.cascadingdropdown.js"
   ]
   s.homepage = "http://github.com/lazing/quick-admin"
   s.licenses = ["MIT"]
@@ -74,8 +75,10 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<responders>, ["~> 2.0"])
       s.add_runtime_dependency(%q<nprogress-rails>, [">= 0"])
       s.add_runtime_dependency(%q<sass-rails>, [">= 0"])
-      s.add_runtime_dependency(%q<bootstrap-sass>, [">= 0"])
       s.add_runtime_dependency(%q<font-awesome-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<semantic-ui-sass>, [">= 0"])
+      s.add_runtime_dependency(%q<jquery-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<sprockets-rails>, [">= 0"])
       s.add_development_dependency(%q<pry-rails>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
@@ -100,8 +103,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<responders>, ["~> 2.0"])
       s.add_dependency(%q<nprogress-rails>, [">= 0"])
       s.add_dependency(%q<sass-rails>, [">= 0"])
-      s.add_dependency(%q<bootstrap-sass>, [">= 0"])
       s.add_dependency(%q<font-awesome-rails>, [">= 0"])
+      s.add_dependency(%q<semantic-ui-sass>, [">= 0"])
+      s.add_dependency(%q<jquery-rails>, [">= 0"])
+      s.add_dependency(%q<sprockets-rails>, [">= 0"])
       s.add_dependency(%q<pry-rails>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
@@ -127,8 +132,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<responders>, ["~> 2.0"])
     s.add_dependency(%q<nprogress-rails>, [">= 0"])
     s.add_dependency(%q<sass-rails>, [">= 0"])
-    s.add_dependency(%q<bootstrap-sass>, [">= 0"])
     s.add_dependency(%q<font-awesome-rails>, [">= 0"])
+    s.add_dependency(%q<semantic-ui-sass>, [">= 0"])
+    s.add_dependency(%q<jquery-rails>, [">= 0"])
+    s.add_dependency(%q<sprockets-rails>, [">= 0"])
     s.add_dependency(%q<pry-rails>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
