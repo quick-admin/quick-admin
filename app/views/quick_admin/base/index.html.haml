@@ -5,8 +5,7 @@
     = show_action :new
 .ui.attached.segment
   = render 'scopes'
-  #filter-form.content.collapse
-    /= datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
+  = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
 = datagrid_table @grid, @assets, partials: "quick_grid"
 = paginate @assets
 

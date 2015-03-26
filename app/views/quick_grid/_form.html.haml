@@ -1,11 +1,14 @@
 = form_for grid, options do |f|
-  - grid.filters.each do |filter|
-    .datagrid-filter.filter.form-group
-      = f.datagrid_label filter
-      = f.datagrid_filter filter, class: "form-control"
+  .ui.form
+    .fields
+      - grid.filters.each do |filter|
+        - options = {}.tap{ |opt| opt[:class] = 'ui dropdown' if filter.form_builder_helper_name.to_s == 'datagrid_enum_filter'}
+        .four.wide.field
+          = f.datagrid_label filter
+          = f.datagrid_filter filter, options
   - unless @scopes.blank?
     .datagrid-filter.filter.form-group.hidden
       %label = @type
       = select_tag(@type.to_sym, options_for_select(@scopes.map {|item| [item, item]}, @scope), class: "form-control #{@type} enum_filter")
-  = f.submit I18n.t("datagrid.form.search"), :class => "btn btn-primay"
-  = link_to I18n.t('datagrid.form.reset'), url_for(grid.to_param => {}), :class => "datagrid-reset btn btn-default"
+  = f.submit I18n.t("datagrid.form.search"), class: "ui button primary"
+  = link_to I18n.t('datagrid.form.reset'), url_for(grid.to_param => {}), :class => "datagrid-reset ui button"
