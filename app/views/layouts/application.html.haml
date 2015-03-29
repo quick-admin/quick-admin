@@ -23,47 +23,5 @@
             .navbar-header
               %a.navbar-minimalize.minimalize-styl-2.btn.btn-primary
                 %i.fa.fa-bars
-              %form.navbar-form-custom{:action => "search_results.html", :method => "post", :role => "search"}
-                .form-group
-                  %input#top-search.form-control{:name => "top-search", :placeholder => "Search for something...", :type => "text"}/
-            %ul.nav.navbar-top-links.navbar-right
-              %li
-                %span.m-r-sm.text-muted.welcome-message= t("site.welcome")
-              %li.dropdown
-                %a.dropdown-toggle.count-info{"data-toggle" => "dropdown", :href => "#"}
-                  %i.fa.fa-bell
-                  %span.label.label-primary 0
-
-                %ul.dropdown-menu.dropdown-alerts
-                  %li
-                    %a{:href => "mailbox.html"}
-                      %div
-                        %i.fa.fa-envelope.fa-fw
-                        You have 16 messages
-                        %span.pull-right.text-muted.small 4 minutes ago
-                  %li.divider
-                  %li
-                    %a{:href => "profile.html"}
-                      %div
-                        %i.fa.fa-twitter.fa-fw
-                        3 New Followers
-                        %span.pull-right.text-muted.small 12 minutes ago
-                  %li.divider
-                  %li
-                    %a{:href => "grid_options.html"}
-                      %div
-                        %i.fa.fa-upload.fa-fw
-                        Server Rebooted
-                        %span.pull-right.text-muted.small 4 minutes ago
-                  %li.divider
-                  %li
-                    .text-center.link-block
-                      %a{:href => "notifications.html"}
-                        %strong See All Alerts
-                        %i.fa.fa-angle-right
-              %li
-                %a{:href => "login.html"}
-                  %i.fa.fa-sign-out
-                  Log out
         
         = content_for?(:content) ? yield(:content) : yield
