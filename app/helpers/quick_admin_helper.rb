@@ -84,10 +84,12 @@ module QuickAdminHelper
 
   # 对show页面显示actions动作面板
   def show_action *actions
+    raise 'only allow new, back, edit and destory' unless ((actions.map!(&:to_s)) - %W(new back edit destroy)).size == 0 
 
-    raise "only allow new, back, edit and destory" unless ((actions.map!(&:to_s)) - %W(new back edit destroy)).size == 0 
-
-    render partial: 'quick_admin/action_show', locals: {actions: actions} 
+    if controller.class.respond_to?(:disable_actions)
+      disables = controller.class.send(:disable_actions).map(&:to_s)
+      actions = (actions - disables)
+    end
+    render partial: 'quick_admin/action_show', locals: { actions: actions }
   end
-
 end

@@ -13,7 +13,5 @@
           %li.active=display(resource)
         - else
           %li.active=resource_class.model_name.human(count: 2)
-
   = yield
-
 = render template: QuickAdmin.parent_layout
