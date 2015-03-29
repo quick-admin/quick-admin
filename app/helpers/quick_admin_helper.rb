@@ -14,7 +14,8 @@ module QuickAdminHelper
       locals: { value: text, label: label, object: object, attribute: attribute }
   end
 
-  def item_value object, attribute, value, link: nil
+  def item_value object, attribute, value=nil, link: nil
+    value = object.send(attribute) unless value
     case value
     when ActiveRecord::Base
       link_model(value)
@@ -28,11 +29,15 @@ module QuickAdminHelper
       t value.to_s
     else
       case
+      when attribute =~ /(.+)_id/ && object.respond_to?($1)
+        link_model object.send($1)
       when !link.blank?
         link_to truncate(value.to_s), link
       when object.class.respond_to?(:members) && object.class.members.include?(attribute.to_s)
         [value].flatten.select{|val|!val.blank?}
           .map{|val|object.class.human_member_name(attribute, val)}.join(", ")
+      when value.nil?
+        content_tag :span, '<empty>', class: 'empty'
       else
         text = markdown(value.respond_to?(:human) ? value.human : value).html_safe
         sanitize text, tags: %w(span code strong abbr)
