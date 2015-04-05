@@ -2,7 +2,6 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
   respond_to :html, :js, :json
 
   module InstanceMethods
-
     def collection
       get_collection_ivar || begin
         @grid = build_grid
@@ -53,5 +52,4 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
   def should_authorize?
     ApplicationController.include?(Pundit) rescue false
   end
-
 end

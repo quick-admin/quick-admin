@@ -8,7 +8,9 @@ require 'nprogress-rails'
 require 'haml-rails'
 require 'coffee-rails'
 require 'jquery-rails'
-#require 'sprockets-rails'
+require 'jquery-ui-rails'
+require 'jquery-turbolinks'
+require 'sprockets/railtie'
 require 'semantic-ui-sass'
 
 #

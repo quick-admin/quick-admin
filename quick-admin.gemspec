@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ryan Wong"]
-  s.date = "2015-03-13"
+  s.date = "2015-04-01"
   s.description = "\n\n    * bootstrap 3\n    * fontawesome\n    * haml\n    * datagrid\n    * responders\n    * kaminari\n\n  "
   s.email = "lazing@gmail.com"
   s.extra_rdoc_files = [
@@ -25,8 +25,11 @@ Gem::Specification.new do |s|
     "README.mdown",
     "Rakefile",
     "VERSION",
+    "app/assets/javascripts/quick-admin/base.coffee",
+    "app/assets/stylesheets/quick-admin/base.scss",
     "app/controllers/quick_admin/base_controller.rb",
     "app/helpers/quick_admin_helper.rb",
+    "app/views/datagrid/_range_filter.html.haml",
     "app/views/kaminari/_first_page.html.haml",
     "app/views/kaminari/_gap.html.haml",
     "app/views/kaminari/_last_page.html.haml",
@@ -36,6 +39,7 @@ Gem::Specification.new do |s|
     "app/views/kaminari/_prev_page.html.haml",
     "app/views/layouts/_menu.html.haml",
     "app/views/layouts/application.html.haml",
+    "app/views/layouts/quick_admin/base.html.haml",
     "app/views/quick_admin/_action_show.html.haml",
     "app/views/quick_admin/_item.html.haml",
     "app/views/quick_admin/base/_scopes.html.haml",
@@ -78,6 +82,8 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<font-awesome-rails>, [">= 0"])
       s.add_runtime_dependency(%q<semantic-ui-sass>, [">= 0"])
       s.add_runtime_dependency(%q<jquery-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<jquery-turbolinks>, [">= 0"])
       s.add_runtime_dependency(%q<sprockets-rails>, [">= 0"])
       s.add_development_dependency(%q<pry-rails>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
@@ -106,6 +112,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<font-awesome-rails>, [">= 0"])
       s.add_dependency(%q<semantic-ui-sass>, [">= 0"])
       s.add_dependency(%q<jquery-rails>, [">= 0"])
+      s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
+      s.add_dependency(%q<jquery-turbolinks>, [">= 0"])
       s.add_dependency(%q<sprockets-rails>, [">= 0"])
       s.add_dependency(%q<pry-rails>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
@@ -135,6 +143,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<font-awesome-rails>, [">= 0"])
     s.add_dependency(%q<semantic-ui-sass>, [">= 0"])
     s.add_dependency(%q<jquery-rails>, [">= 0"])
+    s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
+    s.add_dependency(%q<jquery-turbolinks>, [">= 0"])
     s.add_dependency(%q<sprockets-rails>, [">= 0"])
     s.add_dependency(%q<pry-rails>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])

@@ -26,8 +26,9 @@ gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 gem 'sprockets-rails'
-
 
 group :development do
   gem 'pry-rails'

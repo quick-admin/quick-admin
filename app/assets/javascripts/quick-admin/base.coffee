@@ -1,3 +1,4 @@
+#= require jquery-ui
 #= require semantic-ui
 
 $(document).ready ->
