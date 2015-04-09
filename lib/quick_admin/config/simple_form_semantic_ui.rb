@@ -63,7 +63,8 @@ SimpleForm.setup do |config|
     b.use :html5
     b.wrapper tag: 'div', class: 'ui checkbox' do |input|
       input.use :input
-      input.wrapper tag: 'label' do |box| end
+      input.wrapper tag: 'label' do |_box|
+      end
     end
     b.use :label
   end
@@ -72,7 +73,8 @@ SimpleForm.setup do |config|
     b.use :html5
     b.wrapper tag: 'div', class: 'ui slider checkbox' do |input|
       input.use :input
-      input.wrapper tag: 'label' do |slide| end
+      input.wrapper tag: 'label' do |_slide|
+      end
     end
     b.use :label
   end
@@ -81,7 +83,8 @@ SimpleForm.setup do |config|
     b.use :html5
     b.wrapper tag: 'div', class: 'ui toggle checkbox' do |input|
       input.use :input
-      input.wrapper tag: 'label' do |slide| end
+      input.wrapper tag: 'label' do |_slide|
+      end
     end
     b.use :label
   end
