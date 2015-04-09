@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'pickadate-rails'
 gem 'sprockets-rails'
 
 group :development do

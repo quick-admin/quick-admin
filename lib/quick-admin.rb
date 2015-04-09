@@ -13,6 +13,7 @@ require 'turbolinks'
 require 'jquery-turbolinks'
 require 'semantic-ui-sass'
 require 'font-awesome-rails'
+require 'pickadate-rails'
 require 'sprockets/railtie'
 
 #
@@ -29,3 +30,4 @@ end
 
 require 'quick_admin/rails'
 require 'quick_admin/datagrid'
+require 'quick_admin/simple_form'
