@@ -27,6 +27,7 @@ gem 'font-awesome-rails'
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'sprockets-rails'
 

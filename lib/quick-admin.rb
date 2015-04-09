@@ -9,9 +9,11 @@ require 'haml-rails'
 require 'coffee-rails'
 require 'jquery-rails'
 require 'jquery-ui-rails'
+require 'turbolinks'
 require 'jquery-turbolinks'
-require 'sprockets/railtie'
 require 'semantic-ui-sass'
+require 'font-awesome-rails'
+require 'sprockets/railtie'
 
 #
 module QuickAdmin
