@@ -5,7 +5,7 @@
       - if filter.form_builder_helper_name.to_s == 'datagrid_enum_filter'
         - filter.options.reverse_merge!(class: 'ui dropdown search', prompt: label_name)
       .field
-        = f.datagrid_filter filter, placeholder: label_name
+        = f.datagrid_filter filter, options.reverse_merge(placeholder: label_name)
   - unless @scopes.blank?
     .datagrid-filter.filter.form-group.hidden
       %label = @type
