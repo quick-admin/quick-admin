@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Ryan Wong"]
-  s.date = "2015-04-09"
+  s.date = "2015-04-14"
   s.description = "\n\n    * bootstrap 3\n    * fontawesome\n    * haml\n    * datagrid\n    * responders\n    * kaminari\n\n  "
   s.email = "lazing@gmail.com"
   s.extra_rdoc_files = [
@@ -26,10 +26,13 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/javascripts/quick-admin/base.coffee",
+    "app/assets/javascripts/quick-admin/dropdown.coffee",
+    "app/assets/javascripts/quick-admin/pickdate.coffee",
     "app/assets/stylesheets/quick-admin/base.scss",
+    "app/assets/stylesheets/quick-admin/pickdate.css",
     "app/controllers/quick_admin/base_controller.rb",
     "app/helpers/quick_admin_helper.rb",
-    "app/views/datagrid/_range_filter.html.haml",
+    "app/inputs/wysiwyg_input.rb",
     "app/views/kaminari/_first_page.html.haml",
     "app/views/kaminari/_gap.html.haml",
     "app/views/kaminari/_last_page.html.haml",
@@ -51,11 +54,15 @@ Gem::Specification.new do |s|
     "app/views/quick_grid/_form.html.haml",
     "app/views/quick_grid/_head.html.haml",
     "app/views/quick_grid/_order_for.html.haml",
+    "app/views/quick_grid/_range_filter.html.haml",
     "app/views/quick_grid/_row.html.haml",
     "app/views/quick_grid/_table.html.haml",
     "lib/quick-admin.rb",
+    "lib/quick_admin/config/simple_form.rb",
+    "lib/quick_admin/config/simple_form_semantic_ui.rb",
     "lib/quick_admin/datagrid.rb",
     "lib/quick_admin/rails.rb",
+    "lib/quick_admin/simple_form.rb",
     "quick-admin.gemspec",
     "spec/helpers/quick_admin_helper_spec.rb",
     "vendor/assets/javascripts/jquery.cascadingdropdown.js"
