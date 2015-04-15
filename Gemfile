@@ -5,7 +5,7 @@ source 'http://ruby.taobao.org/'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-gem 'rails', "~>4.2"
+gem 'rails', '>=4.2'
 gem 'haml'
 gem 'haml-rails'
 gem 'coffee-rails'
@@ -31,6 +31,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'pickadate-rails'
 gem 'sprockets-rails'
+gem 'select2-rails'
 
 group :development do
   gem 'pry-rails'

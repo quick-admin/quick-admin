@@ -14,6 +14,7 @@ require 'jquery-turbolinks'
 require 'semantic-ui-sass'
 require 'font-awesome-rails'
 require 'pickadate-rails'
+require 'select2-rails'
 require 'sprockets/railtie'
 
 #
