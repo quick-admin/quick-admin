@@ -15,13 +15,13 @@
   %body.pushable
     #toc.ui.vertical.menu.sidebar.left
       = link_to t("site.name"), root_path, class: %w(brand item)
-      = render 'layouts/menu' rescue nil
+      = render 'layouts/menu' rescue Rails.logger.warn($1)
     #topbar.ui.fixed.main.menu
       .container
         %a.launch.item.toggle
           %i.content.icon
           Menu
-        = render 'layouts/top_menu' rescue nil
+        = render 'layouts/top_menu' rescue Rails.logger.warn($1)
     .pusher
       .main.container
         .ui.segment
