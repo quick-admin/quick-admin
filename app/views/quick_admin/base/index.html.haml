@@ -1,11 +1,11 @@
-
 .ui.menu.attached.top
   .item= page_entries_info @assets
   .ui.menu.right.icon.inverted.blue
     = show_action :new
 .ui.attached.segment
   = render 'scopes'
-  = cache @assets do
+  - key = @assets.try(:cache_key) rescue nil
+  = cache_if key, @assets do
     = datagrid_form_for @grid, url: url_for(action: :index), partials: "quick_grid"
 = datagrid_table @grid, @assets, partials: "quick_grid"
 = paginate @assets
