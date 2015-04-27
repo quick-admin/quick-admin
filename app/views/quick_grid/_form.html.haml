@@ -7,7 +7,7 @@
       .field
         = f.datagrid_filter filter, options.reverse_merge(placeholder: label_name)
   - unless @scopes.blank?
-    .datagrid-filter.filter.form-group.hidden
+    .datagrid-filter.filter.form-group{ hidden: true }
       %label = @type
       = select_tag(@type.to_sym, options_for_select(@scopes.map {|item| [item, item]}, @scope), class: "form-control #{@type} enum_filter")
   = f.submit I18n.t("datagrid.form.search"), class: "ui button"
