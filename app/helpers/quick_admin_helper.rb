@@ -112,9 +112,7 @@ module QuickAdminHelper
   def link_model(value)
     return unless value
     display = display(value)
-    path =
-      "#{ActiveModel::Naming.singular_route_key(value)}_path"
-    if value.is_a?(ActiveRecord::Base) && respond_to?(path)
+    if value.is_a?(ActiveRecord::Base)
       link_to display, value
     else
       display
