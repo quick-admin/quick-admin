@@ -121,6 +121,17 @@ module QuickAdminHelper
     end
   end
 
+  #override
+  def link_to(name = nil, options = nil, html_options = nil, &block)
+    return super unless options.is_a?(ActiveRecord::Base)
+    path =
+      "#{ActiveModel::Naming.singular_route_key(options)}_path"
+    return link_to name, send(path, options) if respond_to?(path)
+    superclass = options.class.superclass
+    path = "#{ActiveModel::Naming.singular_route_key(superclass)}_path"
+    return link_to name, send(path, options) if respond_to?(path)
+    super
+  end
   # 对show页面显示actions动作面板
   def show_action(*actions)
     deny_actions =
