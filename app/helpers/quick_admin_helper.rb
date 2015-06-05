@@ -32,7 +32,7 @@ module QuickAdminHelper
       [value].flatten.select { |val| !val.blank? }
         .map { |val| object.class.human_member_name(attribute, val) }.join(', ')
     else
-      human_value value
+      human_value value, options
     end
   end
 
