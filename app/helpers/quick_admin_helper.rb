@@ -108,15 +108,14 @@ module QuickAdminHelper
 
   # 自动连接model
   # * 以display_name, name, to_s 判断model的显示名称
-  # * 如果有 model_name_path 的路由则进行超链接
-  def link_model(value)
+  # * 如果有 model_name_pat-h 的路由则进行超链接
+  def link_model(value, options = {})
     return unless value
     display = display(value)
-    if value.is_a?(ActiveRecord::Base)
-      link_to display, value
-    else
-      display
-    end
+    return display unless value.is_a?(ActiveRecord::Base)
+    link_to display, value, options
+  rescue NoMethodError
+    display
   end
 
   #override
