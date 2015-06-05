@@ -1,3 +1,4 @@
+#
 module QuickAdminHelper
   def item(object, attribute = nil, link: nil, &block)
     if block_given?
@@ -7,92 +8,113 @@ module QuickAdminHelper
       text = item_value(object, attribute, value, link: link)
     end
 
-    label = object.class.try(:human_attribute_name, attribute) rescue attribute
+    label =
+      if object.class.respond_to?(:human_attribute_name)
+        object.class.human_attribute_name attribute
+      else
+        attribute
+      end
 
     render \
       partial: 'quick_admin/item',
-      locals: { value: text, label: label, object: object, attribute: attribute }
+      locals: {
+        value: text, label: label,
+        object: object, attribute: attribute
+      }
   end
 
-  def item_value object, attribute, value=nil, link: nil
+  def item_value(object, attribute, value = nil, options = {})
     value = object.send(attribute) unless value
-    case value
-    when ActiveRecord::Base
-      link_model(value)
-    when DateTime, Time, ActiveSupport::TimeWithZone
-      time_ago_in_words value
-    when Date
-      l value
-    when Array
-      value.map{|val| item_value(object, attribute, val)}.select{|i|!i.blank?}.join(", ")
-    when TrueClass, FalseClass
-      t value.to_s
+    case
+    when attribute =~ /(.+)_id/ && object.respond_to?($1)
+      link_model object.send($1)
+    when object.class.respond_to?(:members) && object.class.members.include?(attribute.to_s)
+      [value].flatten.select { |val| !val.blank? }
+        .map { |val| object.class.human_member_name(attribute, val) }.join(', ')
     else
-      case
-      when attribute =~ /(.+)_id/ && object.respond_to?($1)
-        link_model object.send($1)
-      when !link.blank?
-        link_to truncate(value.to_s), link
-      when object.class.respond_to?(:members) && object.class.members.include?(attribute.to_s)
-        [value].flatten.select{|val|!val.blank?}
-          .map{|val|object.class.human_member_name(attribute, val)}.join(", ")
-      when value.nil?
-        content_tag :span, '<empty>', class: 'empty'
-      else
-        text = markdown(value.respond_to?(:human) ? value.human : value).html_safe
-        sanitize text, tags: %w(span code strong abbr)
-      end
+      human_value value
     end
   end
 
-  # 创建resource关于attributes的属性Define List
-  def items object, *attributes, &block
+  def human_value(value, options = {})
+    raw_text =
+      case value
+      when ActiveRecord::Base
+        link_model(value)
+      when DateTime, Time
+        l value, format: :short
+      when ActiveSupport::TimeWithZone
+        l value.to_time, format: :short
+      when Date
+        l value, format: :short
+      when Array
+        value.map { |val| human_value(val) }
+        .reject(&:blank?).join(', ')
+      when TrueClass, FalseClass
+        t value.to_s
+      else
+        value
+      end
+
+    case
+    when !options[:link].blank?
+      link_to truncate(raw_text), options[:link]
+    when value.nil?
+      content_tag :span, '<empty>', class: 'empty'
+    else
+      raw_text
+    end
+  end
+
+  def items(object, *attributes, &block)
     options = attributes.extract_options!
     inner = block.call if block_given?
     options.merge! class: "ui list #{options[:class]}"
     content_tag :div, options do
-      nodes = attributes.map{|attr| item(object, attr)}
+      nodes = attributes.map { |attr| item(object, attr) }
       [nodes, inner].flatten.compact.join.html_safe
     end
   end
 
-  def default_item_names object, columns=2
+  def default_item_names(object, columns = 2)
     names = object.class.column_names
     size = (names.size + 1) / columns
-    0.upto(columns-1).map{|n| names[(n*size)..((n+1)*size-1)]}
+    0.upto(columns - 1).map { |n| names[(n * size)..((n + 1) * size - 1)] }
   end
 
   # 显示model名称
   # * 以display_name, name, to_s 判断model的显示名称
-  def display object
-    text = case
-    when object.respond_to?(:display_name)
-      object.display_name
-    when object.respond_to?(:human)
-      object.human
-    when object.respond_to?(:name)
-      object.name
-    else
-      object.to_s
-    end
+  def display(object)
+    text =
+      case
+      when object.respond_to?(:display_name)
+        object.display_name
+      when object.respond_to?(:human)
+        object.human
+      when object.respond_to?(:name)
+        object.name
+      else
+        object.to_s
+      end
     sanitize markdown(text), tags: %w(span code strong abbr)
   rescue
-    logger.warn "#{$!}: #{$!.backtrace()}"
-    "!E"
+    $ERROR_INFO.message
   end
 
-  def markdown content
+  def markdown(content)
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    raw @markdown.render(content.to_s||"")
+    raw @markdown.render(content.to_s)
   end
 
   # 自动连接model
   # * 以display_name, name, to_s 判断model的显示名称
   # * 如果有 model_name_path 的路由则进行超链接
-  def link_model value
+  def link_model(value)
+    return unless value
     display = display(value)
-
-    if value.is_a?(ActiveRecord::Base) && respond_to?("#{ActiveModel::Naming.singular_route_key(value)}_path")
+    path =
+      "#{ActiveModel::Naming.singular_route_key(value)}_path"
+    if value.is_a?(ActiveRecord::Base) && respond_to?(path)
       link_to display, value
     else
       display
@@ -100,11 +122,13 @@ module QuickAdminHelper
   end
 
   # 对show页面显示actions动作面板
-  def show_action *actions
+  def show_action(*actions)
+    deny_actions =
+      (actions.map!(&:to_s)) - %w(new back edit destroy)
+    fail 'only allow new, back, edit and destory' unless deny_actions.empty?
 
-    raise "only allow new, back, edit and destory" unless ((actions.map!(&:to_s)) - %W(new back edit destroy)).size == 0 
-
-    render partial: 'quick_admin/action_show', locals: {actions: actions} 
+    render\
+      partial: 'quick_admin/action_show',
+      locals: { actions: actions }
   end
-
 end
