@@ -38,7 +38,8 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
     end
 
     def build_grid
-      resource_collection_name.to_s.camelize.constantize.new(params[resource_collection_name])
+      grid_name = resource_class.name.pluralize
+      grid_name.constantize.new(params[resource_collection_name])
     end
   end
 
