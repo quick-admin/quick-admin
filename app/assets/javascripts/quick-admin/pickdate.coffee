@@ -8,3 +8,7 @@ $(document).ready ->
     format: 'yyyy/m/d'
     formatSubmit: 'yyyy/mm/dd'
     hiddenName: true
+  $('input.pickadate').pickadate
+    format: 'yyyy-mm-dd'
+    formatSubmit: 'yyyy-mm-dd'
+    hiddenName: true
