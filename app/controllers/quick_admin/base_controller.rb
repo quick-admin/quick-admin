@@ -38,12 +38,12 @@ class QuickAdmin::BaseController < QuickAdmin.parent_controller.constantize
     end
 
     def build_grid
-      grid_name = resource_class.name.pluralize
-      grid_name.constantize.new(params[resource_collection_name])
+      grid_class = resource_class.name.pluralize.constantize
+      grid_class.new(params[grid_class.model_name.param_key])
     end
   end
 
-  def self.inherited klass
+  def self.inherited(klass)
     klass.inherit_resources
     klass.send :include, InstanceMethods
   end
